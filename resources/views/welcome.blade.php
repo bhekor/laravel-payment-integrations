@@ -18,112 +18,6 @@
             body {
                 font-family: 'Nunito', sans-serif;
             }
-            form {
-            max-width: 300px;
-            margin: 10px auto;
-            padding: 10px 20px;
-            background: #f4f7f8;
-            border-radius: 8px;
-            }
-
-            h1 {
-            margin: 0 0 30px 0;
-            text-align: center;
-            }
-
-            input[type="text"],
-            input[type="password"],
-            input[type="date"],
-            input[type="datetime"],
-            input[type="email"],
-            input[type="number"],
-            input[type="search"],
-            input[type="tel"],
-            input[type="time"],
-            input[type="url"],
-            textarea,
-            select {
-            background: rgba(255,255,255,0.1);
-            border: none;
-            font-size: 16px;
-            height: auto;
-            margin: 0;
-            outline: 0;
-            padding: 15px;
-            width: 100%;
-            background-color: #e8eeef;
-            color: #8a97a0;
-            box-shadow: 0 1px 0 rgba(0,0,0,0.03) inset;
-            margin-bottom: 30px;
-            }
-
-            input[type="radio"],
-            input[type="checkbox"] {
-            margin: 0 4px 8px 0;
-            }
-
-            select {
-            padding: 6px;
-            height: 32px;
-            border-radius: 2px;
-            }
-
-            button {
-            padding: 19px 39px 18px 39px;
-            color: #FFF;
-            background-color: #4bc970;
-            font-size: 18px;
-            text-align: center;
-            font-style: normal;
-            border-radius: 5px;
-            width: 100%;
-            border: 1px solid #3ac162;
-            border-width: 1px 1px 3px;
-            box-shadow: 0 -1px 0 rgba(255,255,255,0.1) inset;
-            margin-bottom: 10px;
-            }
-
-            fieldset {
-            margin-bottom: 30px;
-            border: none;
-            }
-
-            legend {
-            font-size: 1.4em;
-            margin-bottom: 10px;
-            }
-
-            label {
-            display: block;
-            margin-bottom: 8px;
-            }
-
-            label.light {
-            font-weight: 300;
-            display: inline;
-            }
-
-            .number {
-            background-color: #5fcf80;
-            color: #fff;
-            height: 30px;
-            width: 30px;
-            display: inline-block;
-            font-size: 0.8em;
-            margin-right: 4px;
-            line-height: 30px;
-            text-align: center;
-            text-shadow: 0 1px 0 rgba(255,255,255,0.2);
-            border-radius: 100%;
-            }
-
-            @media screen and (min-width: 480px) {
-
-            form {
-                max-width: 480px;
-            }
-
-            }
         </style>
     </head>
     <body class="antialiased">
@@ -156,73 +50,51 @@
                         <div class="p-6">
                             <div class="flex items-center">
                                 <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" class="w-8 h-8 text-gray-500"><path d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path></svg>
-                                <div class="ml-4 text-lg leading-7 font-semibold"><a href="https://laravel.com/docs" class="underline text-gray-900 dark:text-white">STRIPE</a></div>
+                                <div class="ml-4 text-lg leading-7 font-semibold"><a href="https://laravel.com/docs" class="underline text-gray-900 dark:text-white">Documentation</a></div>
                             </div>
 
                             <div class="ml-12">
                                 <div class="mt-2 text-gray-600 dark:text-gray-400 text-sm">
-                                    <form action="{{ route('stripe.callback') }}" method="post" id="payment-form">@csrf
-                                        <h1> Payment N600 </h1>
-
-                                        <fieldset>
-                                            <legend><span class="number">1</span> Stripe Payment</legend>
-
-                                            <label for="name">Name:</label>
-                                            <input type="text" id="name" name="user_name">
-
-                                            <label for="email">Email:</label>
-                                            <input type="email" id="mail" name="user_email">
-                                            <input type="hidden" id="amount" name="amount" value="600">
-
-                                            <div id="card-element">
-                                            <!-- A Stripe Element will be inserted here. -->
-                                            </div>
-                                            <!-- Used to display form errors. -->
-                                            <div id="card-errors" role="alert"></div>
-
-                                        </fieldset>
-                                        <fieldset>
-
-                                        </fieldset>
-
-                                        <button type="submit" id="card-button" data-secret="{{ $intent }}">Make Payment</button>
-
-                                    </form>
+                                    Laracasts offers thousands of video tutorials on Laravel, PHP, and JavaScript development. Check them out, see for yourself, and massively level up your development skills in the process.
                                 </div>
-
-                                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Porro quidem possimus at, voluptates dolor eius. Modi accusamus laboriosam qui labore totam. Voluptatum quod qui officiis a eaque iure delectus neque nulla numquam.
                             </div>
                         </div>
 
                         <div class="p-6 border-t border-gray-200 dark:border-gray-700 md:border-t-0 md:border-l">
                             <div class="flex items-center">
                                 <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" class="w-8 h-8 text-gray-500"><path d="M3 9a2 2 0 012-2h.93a2 2 0 001.664-.89l.812-1.22A2 2 0 0110.07 4h3.86a2 2 0 011.664.89l.812 1.22A2 2 0 0018.07 7H19a2 2 0 012 2v9a2 2 0 01-2 2H5a2 2 0 01-2-2V9z"></path><path d="M15 13a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
-                                <div class="ml-4 text-lg leading-7 font-semibold"><a href="https://laracasts.com" class="underline text-gray-900 dark:text-white">PAYSTACK</a></div>
+                                <div class="ml-4 text-lg leading-7 font-semibold"><a href="https://laracasts.com" class="underline text-gray-900 dark:text-white">Laracasts</a></div>
                             </div>
 
                             <div class="ml-12">
                                 <div class="mt-2 text-gray-600 dark:text-gray-400 text-sm">
-                                    <form action="{{ route('paystack.pay') }}" method="post">@csrf
-                                        <h1> Payment N600 </h1>
+                                    Laracasts offers thousands of video tutorials on Laravel, PHP, and JavaScript development. Check them out, see for yourself, and massively level up your development skills in the process.
+                                </div>
+                            </div>
+                        </div>
 
-                                        <fieldset>
-                                            <legend><span class="number">1</span> Paystack Payment</legend>
+                        <div class="p-6 border-t border-gray-200 dark:border-gray-700">
+                            <div class="flex items-center">
+                                <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" class="w-8 h-8 text-gray-500"><path d="M7 8h10M7 12h4m1 8l-4-4H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-3l-4 4z"></path></svg>
+                                <div class="ml-4 text-lg leading-7 font-semibold"><a href="https://laravel-news.com/" class="underline text-gray-900 dark:text-white">Laravel News</a></div>
+                            </div>
 
-                                            <label for="name">Name:</label>
-                                            <input type="text" id="name" name="user_name">
+                            <div class="ml-12">
+                                <div class="mt-2 text-gray-600 dark:text-gray-400 text-sm">
+                                    Laravel News is a community driven portal and newsletter aggregating all of the latest and most important news in the Laravel ecosystem, including new package releases and tutorials.
+                                </div>
+                            </div>
+                        </div>
 
-                                            <label for="email">Email:</label>
-                                            <input type="email" id="mail" name="user_email">
-                                            <input type="hidden" id="amount" name="amount" value="600">
+                        <div class="p-6 border-t border-gray-200 dark:border-gray-700 md:border-l">
+                            <div class="flex items-center">
+                                <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" class="w-8 h-8 text-gray-500"><path d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                                <div class="ml-4 text-lg leading-7 font-semibold text-gray-900 dark:text-white">Vibrant Ecosystem</div>
+                            </div>
 
-                                        </fieldset>
-                                        <fieldset>
-
-                                        </fieldset>
-
-                                        <button type="submit">Make Payment</button>
-
-                                    </form>
+                            <div class="ml-12">
+                                <div class="mt-2 text-gray-600 dark:text-gray-400 text-sm">
+                                    Laravel's robust library of first-party tools and libraries, such as <a href="https://forge.laravel.com" class="underline">Forge</a>, <a href="https://vapor.laravel.com" class="underline">Vapor</a>, <a href="https://nova.laravel.com" class="underline">Nova</a>, and <a href="https://envoyer.io" class="underline">Envoyer</a> help you take your projects to the next level. Pair them with powerful open source libraries like <a href="https://laravel.com/docs/billing" class="underline">Cashier</a>, <a href="https://laravel.com/docs/dusk" class="underline">Dusk</a>, <a href="https://laravel.com/docs/broadcasting" class="underline">Echo</a>, <a href="https://laravel.com/docs/horizon" class="underline">Horizon</a>, <a href="https://laravel.com/docs/sanctum" class="underline">Sanctum</a>, <a href="https://laravel.com/docs/telescope" class="underline">Telescope</a>, and more.
                                 </div>
                             </div>
                         </div>
@@ -256,70 +128,5 @@
                 </div>
             </div>
         </div>
-
-        <script src="https://js.stripe.com/v3/"></script>
-        <script>
-            // Custom styling can be passed to options when creating an Element.
-            // (Note that this demo uses a wider set of styles than the guide below.)
-
-            var style = {
-                base: {
-                    color: '#32325d',
-                    lineHeight: '18px',
-                    fontFamily: '"Helvetica Neue", Helvetica, sans-serif',
-                    fontSmoothing: 'antialiased',
-                    fontSize: '16px',
-                    '::placeholder': {
-                        color: '#aab7c4'
-                    }
-                },
-                invalid: {
-                    color: '#fa755a',
-                    iconColor: '#fa755a'
-                }
-            };
-
-            const stripe = Stripe('{{ config('services.payment.stripe_public') }}', { locale: 'en' }); // Create a Stripe client.
-            const elements = stripe.elements(); // Create an instance of Elements.
-            const cardElement = elements.create('card', { style: style }); // Create an instance of the card Element.
-            const cardButton = document.getElementById('card-button');
-            const clientSecret = cardButton.dataset.secret;
-
-            cardElement.mount('#card-element'); // Add an instance of the card Element into the `card-element` <div>.
-
-            // Handle real-time validation errors from the card Element.
-            cardElement.addEventListener('change', function(event) {
-                var displayError = document.getElementById('card-errors');
-                if (event.error) {
-                    displayError.textContent = event.error.message;
-                } else {
-                    displayError.textContent = '';
-                }
-            });
-
-            // Handle form submission.
-            var form = document.getElementById('payment-form');
-
-            form.addEventListener('submit', function(event) {
-                event.preventDefault();
-
-                stripe.handleCardPayment(clientSecret, cardElement, {
-                    payment_method_data: {
-                        //billing_details: { name: cardHolderName.value }
-                    }
-                })
-                .then(function(result) {
-                    console.log(result);
-                    if (result.error) {
-                        // Inform the user if there was an error.
-                        var errorElement = document.getElementById('card-errors');
-                        errorElement.textContent = result.error.message;
-                    } else {
-                        console.log(result);
-                        form.submit();
-                    }
-                });
-            });
-        </script>
     </body>
 </html>
