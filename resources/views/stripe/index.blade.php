@@ -43,44 +43,49 @@
             input[type="url"],
             textarea,
             select {
-            background: rgba(255,255,255,0.1);
-            border: none;
-            font-size: 16px;
-            height: auto;
-            margin: 0;
-            outline: 0;
-            padding: 15px;
-            width: 100%;
-            background-color: #e8eeef;
-            color: #8a97a0;
-            box-shadow: 0 1px 0 rgba(0,0,0,0.03) inset;
-            margin-bottom: 30px;
+                background: rgba(255,255,255,0.1);
+                border: none;
+                font-size: 16px;
+                height: auto;
+                margin: 0;
+                outline: 0;
+                padding: 15px;
+                width: 100%;
+                background-color: #e8eeef;
+                color: #8a97a0;
+                box-shadow: 0 1px 0 rgba(0,0,0,0.03) inset;
+                margin-bottom: 30px;
             }
 
             input[type="radio"],
             input[type="checkbox"] {
-            margin: 0 4px 8px 0;
+                margin: 0 4px 8px 0;
             }
 
             select {
-            padding: 6px;
-            height: 32px;
-            border-radius: 2px;
+                padding: 6px;
+                height: 32px;
+                border-radius: 2px;
             }
 
             button {
-            padding: 19px 39px 18px 39px;
-            color: #FFF;
-            background-color: #4bc970;
-            font-size: 18px;
-            text-align: center;
-            font-style: normal;
-            border-radius: 5px;
-            width: 100%;
-            border: 1px solid #3ac162;
-            border-width: 1px 1px 3px;
-            box-shadow: 0 -1px 0 rgba(255,255,255,0.1) inset;
-            margin-bottom: 10px;
+                padding: 19px 39px 18px 39px;
+                color: #FFF;
+                background-color: #4bc970;
+                font-size: 18px;
+                text-align: center;
+                font-style: normal;
+                border-radius: 5px;
+                width: 100%;
+                border: 1px solid #3ac162;
+                border-width: 1px 1px 3px;
+                box-shadow: 0 -1px 0 rgba(255,255,255,0.1) inset;
+                margin-bottom: 10px;
+                cursor: pointer;
+            }
+            button:hover{
+                background-color: #64c080;
+                transition: 500ms all;
             }
 
             fieldset {
@@ -162,21 +167,21 @@
                             <div class="ml-12">
                                 <div class="mt-2 text-gray-600 dark:text-gray-400 text-sm">
                                     <form action="{{ route('stripe.pay') }}" method="post">@csrf
-                                        <h1> Payment N600 </h1>
+                                        <h1> Stripe Payment </h1>
 
                                         <fieldset>
-                                            <legend><span class="number">1</span> Stripe Payment</legend>
-
                                             <label for="name">Name:</label>
-                                            <input type="text" id="name" name="name">
+                                            <input type="text" id="name" name="name" value="Hanae Vaughan">
 
                                             <label for="email">Email:</label>
-                                            <input type="email" name="email">
-                                            <input type="hidden" name="amount" value="600">
+                                            <input type="email" name="email" value="gywy@mailinator.com">
+
+                                            <label for="email">Amount:</label>
+                                            <input type="number" name="amount" value="600">
 
                                         </fieldset>
 
-                                        <button type="submit">Proceed to Payment</button>
+                                        <button type="submit">Proceed to Checkout</button>
 
                                     </form>
                                 </div>

@@ -69,18 +69,23 @@
             }
 
             button {
-            padding: 19px 39px 18px 39px;
-            color: #FFF;
-            background-color: #4bc970;
-            font-size: 18px;
-            text-align: center;
-            font-style: normal;
-            border-radius: 5px;
-            width: 100%;
-            border: 1px solid #3ac162;
-            border-width: 1px 1px 3px;
-            box-shadow: 0 -1px 0 rgba(255,255,255,0.1) inset;
-            margin-bottom: 10px;
+                padding: 19px 39px 18px 39px;
+                color: #FFF;
+                background-color: #4bc970;
+                font-size: 18px;
+                text-align: center;
+                font-style: normal;
+                border-radius: 5px;
+                width: 100%;
+                border: 1px solid #3ac162;
+                border-width: 1px 1px 3px;
+                box-shadow: 0 -1px 0 rgba(255,255,255,0.1) inset;
+                margin-bottom: 10px;
+                cursor: pointer;
+            }
+            button:hover{
+                background-color: #64c080;
+                transition: 500ms all;
             }
 
             fieldset {
@@ -162,7 +167,7 @@
                             <div class="ml-12">
                                 <div class="mt-2 text-gray-600 dark:text-gray-400 text-sm">
                                     <form action="{{ route('stripe.callback') }}" method="post" id="payment-form">@csrf
-                                        <h1> Payment N600 </h1>
+                                        <h1> Payment: ${{ $amount }} </h1>
 
                                         <fieldset>
                                             <legend><span class="number">1</span> Stripe Payment</legend>

@@ -162,6 +162,7 @@
                             <div class="ml-12">
                                 <div class="mt-2 text-gray-600 dark:text-gray-400 text-sm">
                                     <h4>Payment Successful.</h4>
+                                    <p>We appreciate doing business with you lot! If you have any questions</p>
                                 </div>
                             </div>
                         </div>

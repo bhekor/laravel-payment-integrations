@@ -35,6 +35,7 @@ class StripeController extends Controller
 
         return view('stripe.checkout', [
             'intent' => $intent,
+            'amount' => $request->amount,
             'name' => $request->name,
             'email' => $request->email,
         ]);
