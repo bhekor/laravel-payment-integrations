@@ -4,7 +4,7 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>Laravel</title>
+        <title>Stripe Payment Integration</title>
 
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
@@ -152,7 +152,7 @@
                 </div>
 
                 <div class="mt-8 bg-white dark:bg-gray-800 overflow-hidden shadow sm:rounded-lg">
-                    <div class="grid grid-cols-1 md:grid-cols-2">
+                    <div class="grid grid-cols-1 md:grid-cols-1">
                         <div class="p-6">
                             <div class="flex items-center">
                                 <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" class="w-8 h-8 text-gray-500"><path d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path></svg>
@@ -161,69 +161,27 @@
 
                             <div class="ml-12">
                                 <div class="mt-2 text-gray-600 dark:text-gray-400 text-sm">
-                                    <form action="{{ route('stripe.callback') }}" method="post" id="payment-form">@csrf
+                                    <form action="{{ route('stripe.pay') }}" method="post">@csrf
                                         <h1> Payment N600 </h1>
 
                                         <fieldset>
                                             <legend><span class="number">1</span> Stripe Payment</legend>
 
                                             <label for="name">Name:</label>
-                                            <input type="text" id="name" name="user_name">
+                                            <input type="text" id="name" name="name">
 
                                             <label for="email">Email:</label>
-                                            <input type="email" id="mail" name="user_email">
-                                            <input type="hidden" id="amount" name="amount" value="600">
-
-                                            <div id="card-element">
-                                            <!-- A Stripe Element will be inserted here. -->
-                                            </div>
-                                            <!-- Used to display form errors. -->
-                                            <div id="card-errors" role="alert"></div>
-
-                                        </fieldset>
-                                        <fieldset>
+                                            <input type="email" name="email">
+                                            <input type="hidden" name="amount" value="600">
 
                                         </fieldset>
 
-                                        <button type="submit" id="card-button" data-secret="{{ $intent }}">Make Payment</button>
+                                        <button type="submit">Proceed to Payment</button>
 
                                     </form>
                                 </div>
 
-                                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Porro quidem possimus at, voluptates dolor eius. Modi accusamus laboriosam qui labore totam. Voluptatum quod qui officiis a eaque iure delectus neque nulla numquam.
-                            </div>
-                        </div>
-
-                        <div class="p-6 border-t border-gray-200 dark:border-gray-700 md:border-t-0 md:border-l">
-                            <div class="flex items-center">
-                                <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" class="w-8 h-8 text-gray-500"><path d="M3 9a2 2 0 012-2h.93a2 2 0 001.664-.89l.812-1.22A2 2 0 0110.07 4h3.86a2 2 0 011.664.89l.812 1.22A2 2 0 0018.07 7H19a2 2 0 012 2v9a2 2 0 01-2 2H5a2 2 0 01-2-2V9z"></path><path d="M15 13a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
-                                <div class="ml-4 text-lg leading-7 font-semibold"><a href="https://laracasts.com" class="underline text-gray-900 dark:text-white">PAYSTACK</a></div>
-                            </div>
-
-                            <div class="ml-12">
-                                <div class="mt-2 text-gray-600 dark:text-gray-400 text-sm">
-                                    <form action="{{ route('paystack.pay') }}" method="post">@csrf
-                                        <h1> Payment N600 </h1>
-
-                                        <fieldset>
-                                            <legend><span class="number">1</span> Paystack Payment</legend>
-
-                                            <label for="name">Name:</label>
-                                            <input type="text" id="name" name="user_name">
-
-                                            <label for="email">Email:</label>
-                                            <input type="email" id="mail" name="user_email">
-                                            <input type="hidden" id="amount" name="amount" value="600">
-
-                                        </fieldset>
-                                        <fieldset>
-
-                                        </fieldset>
-
-                                        <button type="submit">Make Payment</button>
-
-                                    </form>
-                                </div>
+                                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Porro quidem possimus at, voluptates dolor eius.
                             </div>
                         </div>
                     </div>
@@ -256,70 +214,5 @@
                 </div>
             </div>
         </div>
-
-        <script src="https://js.stripe.com/v3/"></script>
-        <script>
-            // Custom styling can be passed to options when creating an Element.
-            // (Note that this demo uses a wider set of styles than the guide below.)
-
-            var style = {
-                base: {
-                    color: '#32325d',
-                    lineHeight: '18px',
-                    fontFamily: '"Helvetica Neue", Helvetica, sans-serif',
-                    fontSmoothing: 'antialiased',
-                    fontSize: '16px',
-                    '::placeholder': {
-                        color: '#aab7c4'
-                    }
-                },
-                invalid: {
-                    color: '#fa755a',
-                    iconColor: '#fa755a'
-                }
-            };
-
-            const stripe = Stripe('{{ config('services.payment.stripe_public') }}', { locale: 'en' }); // Create a Stripe client.
-            const elements = stripe.elements(); // Create an instance of Elements.
-            const cardElement = elements.create('card', { style: style }); // Create an instance of the card Element.
-            const cardButton = document.getElementById('card-button');
-            const clientSecret = cardButton.dataset.secret;
-
-            cardElement.mount('#card-element'); // Add an instance of the card Element into the `card-element` <div>.
-
-            // Handle real-time validation errors from the card Element.
-            cardElement.addEventListener('change', function(event) {
-                var displayError = document.getElementById('card-errors');
-                if (event.error) {
-                    displayError.textContent = event.error.message;
-                } else {
-                    displayError.textContent = '';
-                }
-            });
-
-            // Handle form submission.
-            var form = document.getElementById('payment-form');
-
-            form.addEventListener('submit', function(event) {
-                event.preventDefault();
-
-                stripe.handleCardPayment(clientSecret, cardElement, {
-                    payment_method_data: {
-                        //billing_details: { name: cardHolderName.value }
-                    }
-                })
-                .then(function(result) {
-                    console.log(result);
-                    if (result.error) {
-                        // Inform the user if there was an error.
-                        var errorElement = document.getElementById('card-errors');
-                        errorElement.textContent = result.error.message;
-                    } else {
-                        console.log(result);
-                        form.submit();
-                    }
-                });
-            });
-        </script>
     </body>
 </html>
