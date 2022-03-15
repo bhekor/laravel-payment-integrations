@@ -21,6 +21,11 @@ STRIPE_PUBLIC_KEY=pk_test_xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 ```
 The implementation is in the `StripeController` file and `checkout.blade.php` file.
 
+```mermaid
+graph TD;
+    index.blade.php-->checkout.blade.php-->success.blade.php;
+```
+
 ## License
 
 This project is licensed under the [MIT license](https://opensource.org/licenses/MIT).
