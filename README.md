@@ -56,11 +56,11 @@ PAYPAL_SANDBOX_CLIENT_SECRET=
 PAYPAL_LIVE_CLIENT_ID=
 PAYPAL_LIVE_CLIENT_SECRET=
 ```
-The implementation is in the `PaypalController` file and `checkout.blade.php` file.
+The implementation is in the `PaypalController` file and `index.blade.php` file.
 
 ```mermaid
 graph TD;
-    index.blade.php-->checkout.blade.php-->success.blade.php;
+    index.blade.php-->checkout.blade.php-->success.blade.php(I didn't use this here);
 ```
 
 ### You can get the  [Full Documentation](https://srmklive.github.io/laravel-paypal/docs.html) here.
