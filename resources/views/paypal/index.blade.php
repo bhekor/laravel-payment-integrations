@@ -168,7 +168,18 @@
 
                             <div class="ml-12">
                                 <div class="mt-2 text-gray-600 dark:text-gray-400 text-sm">
-                                    <form action="{{ route('stripe.pay') }}" method="post">@csrf
+
+                                    <form action="{{ route('paypal.pay') }}" method="post">@csrf
+                                        @if(\Session::has('error'))
+                                            <div class="alert alert-danger" style="color: rgb(255, 138, 138); font-size:18px">{{ \Session::get('error') }}</div>
+                                            {{ \Session::forget('error') }}
+                                        @endif
+
+                                        @if(\Session::has('success'))
+                                            <div class="alert alert-success" style="color: rgb(90, 192, 112); font-size:18px">{{ \Session::get('success') }}</div>
+                                            {{ \Session::forget('success') }}
+                                        @endif
+
                                         <h1>PayPal Payment </h1>
 
                                         <fieldset>
