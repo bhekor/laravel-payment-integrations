@@ -41,7 +41,7 @@ composer require srmklive/paypal:~3.0
 php artisan vendor:publish --provider "Srmklive\PayPal\Providers\PayPalServiceProvider"
 ```
 
-Get your stripe key and secret you will find those things in your stripe dashboard, Just copy the publishable key and secret key and paste it into you `.env` file
+Get your client id and secret, you will find those things in your paypal developer dashboard, Just copy the client id and secret key and paste it into you `.env` file
 
 ```php
 #PayPal API Mode
