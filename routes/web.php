@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\PaypalController;
 use App\Http\Controllers\PaystackController;
 use App\Http\Controllers\StripeController;
 use Illuminate\Support\Facades\Route;
@@ -19,9 +20,18 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/stripe', [StripeController::class, 'index']);
-Route::post('/stripe/checkout', [StripeController::class, 'initialize'])->name('stripe.pay');
-Route::post('/stripe/success', [StripeController::class, 'callback'])->name('stripe.callback');
+
+Route::prefix('stripe')->name('stripe.')->group(function () {
+    Route::get('/', [StripeController::class, 'index'])->name('index');
+    Route::post('/checkout', [StripeController::class, 'initialize'])->name('pay');
+    Route::post('/success', [StripeController::class, 'callback'])->name('callback');
+});
+
+Route::prefix('paypal')->name('stripe.')->group(function () {
+    Route::get('/', [PaypalController::class, 'index'])->name('index');
+    Route::post('/checkout', [PaypalController::class, 'initialize'])->name('pay');
+    Route::post('/success', [PaypalController::class, 'callback'])->name('callback');
+});
 
 Route::get('/paystack', [PaystackController::class, 'initialize'])->name('paystack.pay');
 Route::get('/paystack/callback', [PaystackController::class, 'callback'])->name('paystack.callback');
