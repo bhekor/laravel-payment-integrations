@@ -60,7 +60,7 @@ The implementation is in the `PaypalController` file and `index.blade.php` file.
 
 ```mermaid
 graph TD;
-    index.blade.php-->checkout.blade.php-->success.blade.php(I didn't use this here);
+    index.blade.php-->checkout.blade.php-->redirect to index.blade.php;
 ```
 
 ### You can get the  [Full Documentation](https://srmklive.github.io/laravel-paypal/docs.html) here.
